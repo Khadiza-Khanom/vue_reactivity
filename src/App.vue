@@ -1,6 +1,9 @@
 <script setup>
 import{ref,reactive} from 'vue'
 const accordions=reactive([false,false,false,false])
+const isOpen=(index)=>{
+  accordions[index]=!accordions[index]
+}
 
 
 </script>
@@ -22,8 +25,8 @@ const accordions=reactive([false,false,false,false])
           <!-- What is term -->
           <div class="transition ">
             <!-- header -->
-            <div  @click="accordions[0]=!accordions[0]" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
-              <i  class="fas fa-plus"></i>
+            <div  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
+              <i   @click="isOpen(0)" :class="accordions[0]==false?'fas fa-plus':'fas fa-minus'"></i>
               <h3 >What is term? </h3>
             </div>
             <!-- Content -->
@@ -37,9 +40,9 @@ const accordions=reactive([false,false,false,false])
           <!-- When to use Accordion Components -->
           <div class="transition ">
             <!-- header -->
-            <div @click="accordions[1]=!accordions[1]" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
-              <i class="fas fa-plus"></i>
-              <h3 @click="">When to use Accordion Components?</h3>
+            <div  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
+              <i  @click="isOpen(1)" :class="accordions[1]==false?'fas fa-plus':'fas fa-minus'" ></i>
+              <h3 >When to use Accordion Components?</h3>
             </div>
             <!-- Content -->
             <div  class="accordion-content px-5 pt-0 text-left pb-5" v-show="accordions[1]"  >
@@ -52,9 +55,9 @@ const accordions=reactive([false,false,false,false])
           <!-- Accordion Wrapper -->
           <div class="transition ">
             <!-- header -->
-            <div @click="accordions[2]=!accordions[2]" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
-              <i class="fas fa-plus" ></i>
-              <h3  @click="">How can it be defined?</h3>
+            <div  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
+              <i  @click="isOpen(2)" :class="accordions[2]==false?'fas fa-plus':'fas fa-minus'" ></i>
+              <h3  >How can it be defined?</h3>
             </div>
             <!-- Content -->
             <div   class="accordion-content px-5 pt-0 text-left pb-5" v-show="accordions[2]" >
@@ -67,9 +70,9 @@ const accordions=reactive([false,false,false,false])
           <!-- Accordion Wrapper -->
           <div class="transition ">
             <!-- header -->
-            <div @click="accordions[3]=!accordions[3]" class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
-              <i class="fas fa-plus"></i>
-              <h3  @click="">Chamber reached do he nothing be?</h3>
+            <div  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16">
+              <i @click="isOpen(3)" :class="accordions[3]==false?'fas fa-plus':'fas fa-minus'"></i>
+              <h3  >Chamber reached do he nothing be?</h3>
             </div>
             <!-- Content -->
             <div class="accordion-content px-5 pt-0 text-left pb-5" v-show="accordions[3]" >
