@@ -1,6 +1,6 @@
 <script setup>
 import{ref,reactive} from 'vue'
-const accordions=reactive([false,false,false,false])
+const accordions=reactive([true,false,false,false])
 const isOpen=(index)=>{
   accordions[index]=!accordions[index]
 }
