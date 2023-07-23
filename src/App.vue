@@ -1,7 +1,7 @@
 <script setup>
 import{ref,reactive} from 'vue'
 
-//const index=ref(0)
+let item=ref(0)
 
 const accordions = reactive([
   {
@@ -27,6 +27,7 @@ const accordions = reactive([
 ])
 
 
+
 </script>
 
 <template>
@@ -47,15 +48,15 @@ const accordions = reactive([
           <div class="h-1 w-full mx-auto border-b my-5"></div>
 
           <!-- What is term -->
-          <div class="transition " v-for="accordion in accordions">
+          <div class="transition " v-for="accordion,index in accordions" :key="index">
             <!-- header -->
             <div  class="accordion-header cursor-pointer transition flex space-x-5 px-5 items-center h-16"  >
-              <i @click="accordion.isOpen=!accordion.isOpen" :class="accordion.isOpen==false?'fa fa-plus':'fa fa-minus'"></i>
+              <i @click="item=index" :class="item==index?'fa fa-minus':'fa fa-plus'"></i>
               <h3 >{{ accordion.heading }} </h3>
             </div>
             <!-- Content -->
             <div  class="px-5 pt-0 text-left pb-5" >
-              <p class="leading-6 font-light pl-9 " v-show="accordion.isOpen">{{ accordion.content }}</p>
+              <p class="leading-6 font-light pl-9 " v-show="item==index">{{ accordion.content }}</p>
             </div>
           </div>
 
